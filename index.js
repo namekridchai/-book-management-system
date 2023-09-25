@@ -24,8 +24,9 @@ deleteBooks = (bookList,bookName)=>{
         book['name']===bookName
     });
 }
-let mode = prompt('select your mode 1.read(r)  2.add(a) 3.delete(d) 4.edit(e) 4 quit(q)');
-while(true){
+let mode = ''
+do{
+    mode = prompt('select your mode 1.read(r)  2.add(a) 3.delete(d) 4.edit(e) 5 quit(q)');
     switch(mode) {
         case 'r':
             bookList.forEach(viewBooks);
@@ -36,11 +37,11 @@ while(true){
             book['author'] = prompt('type author');
             book['year'] = prompt('type publish year');
             book['price'] = prompt('type price');
-            addBook(bookList,book);
+            bookList = addBook(bookList,book);
           break;
         case'd':
             deleteName = prompt('type your book name that want to delete');
-            deleteBooks(bookList,deleteName);
+            bookList = deleteBooks(bookList,deleteName);
             bookList.forEach(viewBooks);
             break;
         case'e':
@@ -49,9 +50,9 @@ while(true){
             book['author'] = prompt('type author');
             book['year'] = prompt('type publish year');
             book['price'] = prompt('type price');
-            editBook(bookList,book['name'],book)
+            bookList = editBook(bookList,book['name'],book)
         case 'q':
-            return;
-    
+            if (mode!='q')
+                alert(mode)
       }
-}
+}while(mode!='q')
