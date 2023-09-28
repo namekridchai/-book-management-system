@@ -4,10 +4,10 @@ addBook = (bookList,book)=>{
 }
 
 viewBooks = (item)=>{
-    console.log(item['name']);
-    console.log(item['author']);
-    console.log(item['year']);
-    console.log(item['price']);
+    alert(`book name : ${item['name']}`)
+    alert(`author ${item['author']}`)
+    alert(`publish year ${item['year']}`)
+    alert(`price ${item['price']}`)
 }
 
 editBook = (bookList,bookName,newData)=>{
@@ -46,13 +46,10 @@ do{
             break;
         case'e':
             book = {}
-            book['name'] = prompt('type your book name');
+            book['name'] = prompt('type your book name that want to edit');
             book['author'] = prompt('type author');
             book['year'] = prompt('type publish year');
             book['price'] = prompt('type price');
-            bookList = editBook(bookList,book['name'],book)
-        case 'q':
-            if (mode!='q')
-                alert(mode)
+            bookList = editBook(bookList,book['name'],book)     
       }
 }while(mode!='q')
