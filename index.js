@@ -14,14 +14,14 @@ editBook = (bookList,bookName,newData)=>{
     newBookList = bookList.map((book)=>{
         if(book['name']===bookName)
             return newData
-        return c
+        return book
     })
     return newBookList;
 }
 
 deleteBooks = (bookList,bookName)=>{
     return bookList.filter((book)=>{
-        book['name']===bookName
+        return book['name']!==bookName
     });
 }
 let mode = ''
